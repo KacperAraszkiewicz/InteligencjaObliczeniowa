@@ -127,10 +127,6 @@ git clone https://github.com/TWOJE_REPOZYTORIUM/asl-translator.git
 cd asl-translator
 ```
 
-### Wypakuj pliki
-
-Wypakuj zapakowane pliki
-
 ### Trenowanie modelu
 
 ```
