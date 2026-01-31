@@ -4,21 +4,15 @@ import mediapipe as mp
 from tensorflow.keras.models import load_model
 from collections import deque
 
-# ======================
 # KONFIGURACJA
-# ======================
 CONFIDENCE_THRESHOLD = 0.8
 BUFFER_SIZE = 10
 
-# ======================
 # MODEL
-# ======================
 model = load_model("model_landmarks.h5")
 classes = np.load("classes.npy")
 
-# ======================
 # MEDIAPIPE
-# ======================
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(
     static_image_mode=False,
@@ -32,9 +26,7 @@ pred_buffer = deque(maxlen=BUFFER_SIZE)
 
 print("✋ Naciśnij Q aby wyjść")
 
-# ======================
 # LOOP
-# ======================
 while True:
     ret, frame = cap.read()
     if not ret:

@@ -9,16 +9,12 @@ from tensorflow.keras.layers import Dense, Dropout, Input
 from tensorflow.keras.callbacks import EarlyStopping
 import pickle
 
-# ======================
 # KONFIGURACJA
-# ======================
 DATASET_DIR = "asl_alphabet_train/asl_alphabet_train"
 IGNORE_CLASSES = {"del", "space"}
 FEATURES = 63  # 21 punktów * (x,y,z)
 
-# ======================
 # MEDIAPIPE
-# ======================
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(
     static_image_mode=True,
@@ -76,15 +72,11 @@ print(f"✅ Zebrano {len(X)} próbek")
 if len(X) == 0:
     raise RuntimeError("❌ Brak danych treningowych")
 
-# ======================
 # LABEL ENCODER
-# ======================
 le = LabelEncoder()
 y_enc = le.fit_transform(y)
 
-# ======================
 # PODZIAŁ
-# ======================
 X_train, X_val, y_train, y_val = train_test_split(
     X, y_enc,
     test_size=0.2,
@@ -92,9 +84,7 @@ X_train, X_val, y_train, y_val = train_test_split(
     stratify=y_enc
 )
 
-# ======================
 # MODEL MLP
-# ======================
 model = Sequential([
     Input(shape=(FEATURES,)),
     Dense(128, activation="relu"),
@@ -110,9 +100,7 @@ model.compile(
     metrics=["accuracy"]
 )
 
-# ======================
 # TRENING
-# ======================
 print("🚀 Trenowanie...")
 es = EarlyStopping(patience=5, restore_best_weights=True)
 
@@ -124,9 +112,7 @@ model.fit(
     callbacks=[es]
 )
 
-# ======================
 # ZAPIS
-# ======================
 model.save("model_landmarks.h5")
 np.save("classes.npy", le.classes_)
 
