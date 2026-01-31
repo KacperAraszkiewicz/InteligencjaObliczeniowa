@@ -91,7 +91,7 @@ Landmarki opisują **strukturę dłoni**, nie jej wygląd.
 
 ---
 
-## 📁 Struktura projektu
+## Struktura projektu
 
 ```
 .
@@ -105,7 +105,7 @@ Landmarki opisują **strukturę dłoni**, nie jej wygląd.
 
 ---
 
-## 🔧 Wymagania
+## Wymagania
 
 - Python 3.9 – 3.11
 - Kamera internetowa
@@ -145,7 +145,7 @@ python live_predict.py
 
 ---
 
-## 🎯 Wskazówki
+## Wskazówki
 
 - pokazuj jedną dłoń
 - nie zakrywaj palców
