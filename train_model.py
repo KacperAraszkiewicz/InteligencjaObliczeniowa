@@ -25,7 +25,7 @@ hands = mp_hands.Hands(
 X = []
 y = []
 
-print("📥 Wczytywanie danych i ekstrakcja landmarków...")
+print("Wczytywanie danych i ekstrakcja landmarków...")
 
 for label in sorted(os.listdir(DATASET_DIR)):
     if label in IGNORE_CLASSES:
@@ -67,10 +67,10 @@ hands.close()
 X = np.array(X, dtype="float32")
 y = np.array(y)
 
-print(f"✅ Zebrano {len(X)} próbek")
+print(f"Zebrano {len(X)} próbek")
 
 if len(X) == 0:
-    raise RuntimeError("❌ Brak danych treningowych")
+    raise RuntimeError("Brak danych treningowych")
 
 # LABEL ENCODER
 le = LabelEncoder()
@@ -101,7 +101,7 @@ model.compile(
 )
 
 # TRENING
-print("🚀 Trenowanie...")
+print("Trenowanie...")
 es = EarlyStopping(patience=5, restore_best_weights=True)
 
 model.fit(
@@ -119,4 +119,4 @@ np.save("classes.npy", le.classes_)
 with open("label_encoder.pkl", "wb") as f:
     pickle.dump(le, f)
 
-print("✅ Model zapisany (landmarki)")
+print("Model zapisany (landmarki)")
