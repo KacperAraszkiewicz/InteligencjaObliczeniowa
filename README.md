@@ -100,6 +100,7 @@ Landmarki opisują **strukturę dłoni**, nie jej wygląd.
 ├── model_landmarks.h5
 ├── classes.npy
 ├── label_encoder.pkl
+├──model.h5
 └── asl_alphabet_train/
 ```
 
